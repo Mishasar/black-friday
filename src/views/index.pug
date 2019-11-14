@@ -1,10 +1,10 @@
 extends layouts/default
-include helpers/mixins
 
 block variables
-	- const title = "gulp-pug-starter"
+	- const title = "Black Friday"
 
 block content
+	include ../blocks/components/black-friday/black-friday
 
 block scripts
 	script(src="../js/main.js")

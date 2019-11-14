@@ -1,4 +1,5 @@
 const path = require("path");
+import webpack from "webpack";
 
 module.exports = {
     entry: {
@@ -11,19 +12,6 @@ module.exports = {
         publicPath: "/"
     },
 
-    optimization: {
-        splitChunks: {
-            cacheGroups: {
-                vendor: {
-                    test: /node_modules/,
-                    chunks: "initial",
-                    name: "vendor",
-                    enforce: true
-                }
-            }
-        }
-    },
-
     module: {
         rules: [
             {
@@ -33,7 +21,7 @@ module.exports = {
                     loader: "babel-loader",
                     query: {
                         presets: [
-                            ["@babel/preset-env", { modules: false }]
+                            ["@babel/preset-env", {modules: false}]
                         ]
                     }
                 }
@@ -46,5 +34,13 @@ module.exports = {
             "%modules%": path.resolve(__dirname, "src/blocks/modules"),
             "%components%": path.resolve(__dirname, "src/blocks/components")
         }
-    }
+    },
+
+    plugins: [
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery"
+        })
+    ]
 };

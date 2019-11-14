@@ -2,6 +2,7 @@
     "name": "gulp-pug-starter",
     "description": "Frontend development with pleasure",
     "author": "Andrey Gorokhov",
+    "version": "1",
     "repository": {
         "type": "git",
         "url": "https://github.com/andreyalexeich/gulp-pug-starter.git"
@@ -65,6 +66,9 @@
         "yargs": "~13.2.4"
     },
     "dependencies": {
+        "bourbon": "^6.0.0",
+        "flipclock": "^0.10.8",
+        "jquery": "^3.4.1",
         "smart-grid": "^2.1.2"
     }
 }
